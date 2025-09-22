@@ -1,4 +1,4 @@
-# TÉTHYS (alpha v0.0.3)
+# TÉTHYS (alpha v0.0.4)
 
 **[Jeu de gestion économique spatial](https://laz-r.github.io/tethys-alpha/)**
 

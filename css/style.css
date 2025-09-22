@@ -432,23 +432,23 @@ button {
   }
 
   &.Minerai {
-    background-image: url('../../medias/images/icons/minerai.png');
+    background-image: url('../medias/images/icons/minerai.png');
   }
   &.Composants {
-    background-image: url('../../medias/images/icons/composants.png');
+    background-image: url('../medias/images/icons/composants.png');
   }
   &.Nanotech {
-    background-image: url('../../medias/images/icons/nanotech.png');
+    background-image: url('../medias/images/icons/nanotech.png');
   }
 
   &.Armement {
-    background-image: url('../../medias/images/icons/armement.png');
+    background-image: url('../medias/images/icons/armement.png');
   }
   &.Narcotix {
-    background-image: url('../../medias/images/icons/narcotix.png');
+    background-image: url('../medias/images/icons/narcotix.png');
   }
   &.Artefact {
-    background-image: url('../../medias/images/icons/artefact.png');
+    background-image: url('../medias/images/icons/artefact.png');
   }
 }
 
@@ -975,38 +975,20 @@ input[type=file]::file-selector-button {
 .FL_OFF_04 {
   letter-spacing: 3px;
   font-weight: 100;
-  color: hsl(300, 100%, 95%);
   color: hsl(180, 100%, 90%);
-  /* background-image: url('https://images.squarespace-cdn.com/content/551a19f8e4b0e8322a93850a/1664334625275-STGZM2IH7Q53U7N2Z86T/3D_Dungeon_t_loop_L.gif?content-type=image%2Fgif');
-  filter: hue-rotate(-50deg); */
-  /* background-image: url('https://i.redd.it/o2ezcry6940a1.gif'); */
-  /* background-image: url('https://i0.wp.com/media2.giphy.com/media/3oEduXdgk7mKRnwrlK/giphy.gif'); */
-  /* background-image: url('https://i.pinimg.com/originals/65/b3/45/65b345dc3ae44aac82e80692dcb5285e.gif'); */
-  /* background-image: url('https://i.pinimg.com/originals/a9/ca/2f/a9ca2f2a2f8f65e78766dc1b2e01e044.gif');
-  filter: hue-rotate(-40deg); */
-  /* background-image: url('https://media1.tenor.com/m/b01k6WxHEpUAAAAd/galaxy-spiral.gif');
-  background-position-y: 30%; */
-  /* background-image: url('https://lesterbanks.com/lxb_metal/wp-content/uploads/2014/09/mir-v2-seamless-loop1.gif');
-  filter: hue-rotate(-120deg); */
-  /* background-image: url('https://i.makeagif.com/media/11-18-2020/5r5usP.gif'); */
-  background-image: url('https://i.gifer.com/embedded/download/Icq0.gif');
+  background-image: url('../medias/images/FL_OFF_04.gif');
   background-position-y: 65%;
-  /* background-image: url('https://64.media.tumblr.com/fa7498cedaf93753c2d46e2e32ae18a6/5f56b920208086ec-b0/s640x960/8f07d7d5076b753db843aeb61d0cb34b04630c7e.gif');
-  background-position-y: 30%; */
   
 }
 
 .FL_BLA_02 {
-  background-image: url('https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExYWVzZjUxNWxpbGdzYmducXQxNHVtdTd1cGlva3N1ZXhkeWFlYjRycSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/3o8doWjtrmGUPwtbgY/giphy.gif');
+  background-image: url('../medias/images/FL_BLA_02.gif');
   color: hsl(25, 90%, 70%);
   letter-spacing: 3px;
 }
 
 .FL_BLA_04 {
-  /* background-image: url('../medias/images/FL_BLA_04.gif'); */
-  background-image: url('../medias/images/FL_BLA_04-old.gif');
   background-image: url('../medias/images/FL_BLA_04.webp');
-  color: hsl(280, 100%, 65%);
   color: hsl(0, 100%, 65%);
   background-position-y: 30%;
   letter-spacing: 8px;
