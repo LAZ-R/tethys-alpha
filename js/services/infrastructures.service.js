@@ -1,4 +1,4 @@
-import { INFRASTRUCTURES } from "../data/infrastructures-false.data.js";
+import { INFRASTRUCTURES } from "../data/infrastructures.data.js";
 import { TOTAL_BALANCE, updateTotalBalance, updateTotalBalanceDom } from "../main.js";
 import { getCommaFormatedString } from "../utils/math.utils.js";
 import { MY_CREWS } from "./crews.service.js";
