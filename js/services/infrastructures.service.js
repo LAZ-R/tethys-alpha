@@ -1,4 +1,4 @@
-import { INFRASTRUCTURES } from "../data/infrastructures.data.js";
+import { INFRASTRUCTURES } from "../data/infrastructures-false.data.js";
 import { TOTAL_BALANCE, updateTotalBalance, updateTotalBalanceDom } from "../main.js";
 import { getCommaFormatedString } from "../utils/math.utils.js";
 import { MY_CREWS } from "./crews.service.js";
@@ -188,6 +188,23 @@ export function onInvestClick(infraId) {
   document.getElementById('investmentsContainer').innerHTML = getInvestmentsDom();
   updatePassiveRevenuDom();
   updateFlairDom();
+
+  if (infraId == 'AS_OFF_04' || infraId == 'AS_BLA_04') {
+    let user = getUser();
+    switch (infraId) {
+      case 'AS_OFF_04':
+        user.UI_THEME = 'official';
+        user.PREFERED_THEME = 'official';
+        break;
+      case 'AS_BLA_04':
+        user.UI_THEME = 'unofficial';
+        user.PREFERED_THEME = 'unofficial';
+      default:
+        break;
+    }
+    setUser(user);
+    document.getElementsByClassName('lzr')[0].style = `--theme: '${user.PREFERED_THEME}';`;
+  }
   
   let popUp = document.getElementById('popUp');
   popUp.classList.add('hidden');
@@ -198,7 +215,7 @@ window.onInvestClick = onInvestClick;
 
 export function getBoughtInfrastructureDom(infrastructure, isPassive = false) {
   const baseInfra = INFRASTRUCTURES.find((infra) => infra.id == infrastructure.id);
-  console.log(baseInfra);
+  //console.log(baseInfra);
   let investPath = '';
   if (infrastructure.id.includes('TC')) {
     investPath = 'TC';

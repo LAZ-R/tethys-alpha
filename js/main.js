@@ -156,46 +156,48 @@ function renderPhase1() {
   <div class="spaced-text">Coût en fin de phase: <span id="currentPhaseSpendings" class="txt-primary">${CURRENT_PHASE_SPENDINGS} CRD</span></div>
   <hr>
   <h2>Missions disponibles</h2>
-  
-  <div class="lzr-drawer lzr-solid lzr-margin-bottom">
-    <div class="tile-header">
-      <div class="title-bloc">
-        <span class="header-title">Marché officiel</span>
+  <div class="missions-wrapper">
+    <div class="missions-sub-wrapper">
+      <div class="lzr-drawer lzr-solid lzr-margin-bottom">
+        <div class="tile-header">
+          <div class="title-bloc">
+            <span class="header-title">Marché officiel</span>
+          </div>
+          <div class="tile-caret">
+          ${getSvgIcon('chevron-right', 'm', null)}
+          </div>
+          <input type="checkbox" checked>
+        </div>
+        <div class="expandable-wrapper">
+          <div class="expandable-inner">
+            <div class="inner-body">
+              <div id="availableOfficialMissionsContainer"></div>
+            </div>
+          </div>
+        </div>
       </div>
-      <div class="tile-caret">
-      ${getSvgIcon('chevron-right', 'm', null)}
-      </div>
-      <input type="checkbox" checked>
     </div>
-    <div class="expandable-wrapper">
-      <div class="expandable-inner">
-        <div class="inner-body">
-          <div id="availableOfficialMissionsContainer"></div>
+    <div class="missions-sub-wrapper">
+      <div class="lzr-drawer lzr-solid lzr-margin-bottom">
+        <div class="tile-header">
+          <div class="title-bloc">
+            <span class="header-title">Marché noir</span>
+          </div>
+          <div class="tile-caret">
+          ${getSvgIcon('chevron-right', 'm', null)}
+          </div>
+          <input type="checkbox" checked>
+        </div>
+        <div class="expandable-wrapper">
+          <div class="expandable-inner">
+            <div class="inner-body">
+              <div id="availableBlackMissionsContainer"></div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
   </div>
-
-  <div class="lzr-drawer lzr-solid lzr-margin-bottom">
-    <div class="tile-header">
-      <div class="title-bloc">
-        <span class="header-title">Marché noir</span>
-      </div>
-      <div class="tile-caret">
-      ${getSvgIcon('chevron-right', 'm', null)}
-      </div>
-      <input type="checkbox" checked>
-    </div>
-    <div class="expandable-wrapper">
-      <div class="expandable-inner">
-        <div class="inner-body">
-          <div id="availableBlackMissionsContainer"></div>
-        </div>
-      </div>
-    </div>
-  </div>
-  
-  
   `;
   // Calcul des coûts portuaires si tout le monde est ammaré
   if (CURRENT_PHASE_SPENDINGS == 0) {
@@ -405,11 +407,17 @@ function renderPhase4() {
     <span id="totalWarehouseValue2" class="txt-primary">0</span>
   </span>
   <hr>
-  <h2>Marché officiel</h2>
-  <div id="officialSellableList"></div>
+  <div class="warehouse-wrapper">
+  <div class="warehouse-sub-wrapper">
+    <h2>Marché officiel</h2>
+    <div id="officialSellableList"></div>
+  </div>
   <hr>
-  <h2>Marché noir</h2>
-  <div id="blackSellableList"></div>
+  <div class="warehouse-sub-wrapper">
+    <h2>Marché noir</h2>
+    <div id="blackSellableList"></div>
+  </div>
+  </div>
   `;
   // Révélation des "Prix de revente" du marché noir
   let user = getUser();
@@ -504,10 +512,16 @@ function renderPhase7() {
 function renderPhase8() {
   MAIN.innerHTML = `
   <h1 id="pageTitle">8. Réajustements</h1>
-  <h2>Marché officiel</h2>
-  <div id="officialUpdatedPricesContainer"></div>
-  <h2>Marché noir</h2>
-  <div id="blackUpdatedPricesContainer"></div>
+  <div class="market-wrapper">
+    <div class="market-sub-wrapper">
+      <h2>Marché officiel</h2>
+      <div id="officialUpdatedPricesContainer"></div>
+    </div>
+    <div class="market-sub-wrapper">
+      <h2>Marché noir</h2>
+      <div id="blackUpdatedPricesContainer"></div>
+    </div>
+  </div>
   `;
 
   let user = getUser();
@@ -834,7 +848,7 @@ export const getWarehouseSlotBlocDom = (warehouseSlot, isSellable = false, isBla
 
   let ressource = getRessourceObjById(warehouseSlot.id);
 
-  let str = `<div ${isSellable ? `onclick="onWarehouseSlotBlocClick('${ressource.id}')"` : ''} class="warehouse-slot-bloc ${ressource.rarity}">`;
+  let str = `<div ${isSellable ? `onclick="onWarehouseSlotBlocClick('${ressource.id}')"` : ''} class="warehouse-slot-bloc ${ressource.rarity} ${isSellable ? 'sellable' : ''}">`;
   str += `
     <div class="ressource-image ${ressource.category} ${ressource.rarity}"></div>
     <!-- <span>${ressource.category}</span> -->

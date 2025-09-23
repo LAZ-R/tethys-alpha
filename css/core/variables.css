@@ -679,8 +679,8 @@
   /* --- horizontal padding --- */
   --horizontal-padding--phone:   16px;
   --horizontal-padding--tablet:  32px;
-  --horizontal-padding--laptop:  10svw;
-  --horizontal-padding--desktop: 25svw;
+  --horizontal-padding--laptop:  5svw;
+  --horizontal-padding--desktop: 10svw;
   /* --------------------------------------------------------------------- */
   --horizontal-padding : var(--horizontal-padding--phone);
 

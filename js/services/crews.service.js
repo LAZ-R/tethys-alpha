@@ -532,7 +532,22 @@ export const getAvailableCrewBlocDom = (crew) => {
 
 export const getAvailableCrewBlocsDom = () => {
   let str = '<div class="crew-bloc-container">';
-  for (const crew of MY_CREWS) {
+
+  let sortedArray = [...MY_CREWS].sort((a, b) => {
+    // Tri principal : par disponibilité
+    // d'abord, les équipages disponibles | a.assigned = false
+    // ensuite, les équipages assignés | a.assigned = true
+    // tout à la fin, les équipages au repos | a.is_resting = true
+    if (a.is_resting && !b.is_resting) return 1;
+    if (!a.is_resting && b.is_resting) return -1;
+    if (a.assigned && !b.assigned) return 1;
+    if (!a.assigned && b.assigned) return -1;
+
+    // Tri secondaire : par nb de slots (+ = mieux)
+    return b.spaceship.slots.length - a.spaceship.slots.length;
+  });
+
+  for (const crew of sortedArray) {
     str += `${getAvailableCrewBlocDom(crew)}`;
   }
   str += '</div>';

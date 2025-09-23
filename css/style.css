@@ -290,6 +290,9 @@ button {
     min-height: calc(100svh - var(--header-height)); height: calc(100svh - var(--header-height)); max-height: calc(100svh - var(--header-height));
     padding: 8px var(--horizontal-padding);
     overflow-y: scroll;
+    &::-webkit-scrollbar {
+      display: none;
+    }
   }
 }
 
@@ -380,14 +383,43 @@ button {
     gap: 16px;
 
     .warehouse-slot-bloc {
-      --bloc-size: calc((100svw - var(--horizontal-padding) - var(--horizontal-padding) - 13px - 13px - 16px) / 2);
+      --bloc-size: if(
+        /* calc((100svw - var(--horizontal-padding) - var(--horizontal-padding) - 13px - 13px - 16px) / 2) */
+        /* PHONE */ media(width < 767px):  calc((100svw - var(--horizontal-padding) - var(--horizontal-padding) - 13px - 13px - 16px) / 2);
+        /* TABLET */media(width < 1280px): calc((50svw - var(--horizontal-padding) - 13px - 13px - 16px - 8px) / 2);
+        /* LAPTOP */media(width < 1920px): calc((50svw - var(--horizontal-padding) - 13px - 13px - 16px - 16px - 8px) / 3);
+        /* DESKTOP */ else:                calc((50svw - var(--horizontal-padding) - 13px - 13px - 16px - 16px - 16px) / 4);
+      );
       display: flex;
       flex-direction: column;
       justify-content: space-between;
       align-items: center;
       gap: 4px;
       min-width: var(--bloc-size); width: var(--bloc-size); max-width: var(--bloc-size);
-      min-height: calc(var(--bloc-size) / 1); height: calc(var(--bloc-size) / 1); max-height: calc(var(--bloc-size) / 1);
+
+      min-height: if(
+        /* PHONE */ media(width < 767px): var(--bloc-size);
+        /* TABLET */media(width < 1280px): calc(var(--bloc-size) / 1);
+        /* LAPTOP */media(width < 1920px): calc(var(--bloc-size) / 1);
+        /* DESKTOP */ else: calc(var(--bloc-size) / 1);
+      );
+
+      height: if(
+        /* PHONE */ media(width < 767px): var(--bloc-size);
+        /* TABLET */media(width < 1280px): calc(var(--bloc-size) / 2);
+        /* LAPTOP */media(width < 1920px): calc(var(--bloc-size) / 2);
+        /* DESKTOP */ else: calc(var(--bloc-size) / 2);
+      );
+
+      max-height: if(
+        /* PHONE */ media(width < 767px): var(--bloc-size);
+        /* TABLET */media(width < 1280px): calc(var(--bloc-size) / 2);
+        /* LAPTOP */media(width < 1920px): calc(var(--bloc-size) / 2);
+        /* DESKTOP */ else: calc(var(--bloc-size) / 2);
+      );
+
+
+
       border: 1px solid;
       padding: 8px;
 
@@ -402,6 +434,10 @@ button {
       }
       &.Légendaire {
         border-color: var(--color--legendary);
+      }
+
+      &.sellable {
+        border-style: dashed;
       }
 
       .ask {
@@ -422,6 +458,57 @@ button {
         color: red;
       }
     }
+  }
+}
+
+.warehouse-wrapper {
+  display: flex;
+  flex-direction: if(media(width < 767px): column; else: row;);
+  width: 100%;
+  gap: if((media(width > 766px)): 16px;);
+
+  .warehouse-sub-wrapper {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+  }
+
+  hr {
+    display: if((media(width > 766px)): none;);
+  }
+}
+
+.missions-wrapper {
+  display: flex;
+  flex-direction: if(media(width < 767px): column; else: row;);
+  width: 100%;
+  gap: if((media(width > 766px)): 16px;);
+
+  .missions-sub-wrapper {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+  }
+
+  hr {
+    display: if((media(width > 766px)): none;);
+  }
+}
+
+.market-wrapper {
+  display: flex;
+  flex-direction: if(media(width < 767px): column; else: row;);
+  width: 100%;
+  gap: if((media(width > 766px)): 16px;);
+
+  .market-sub-wrapper {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+  }
+
+  hr {
+    display: if((media(width > 766px)): none;);
   }
 }
 
@@ -524,7 +611,12 @@ button {
   gap: 16px;
 
   .mission-bloc.new-mission {
-    --width: calc((100svw - var(--horizontal-padding) - var(--horizontal-padding) - 16px - 26px) / 2);
+    --width: if(
+      /* PHONE */ media(width < 767px):  calc((100svw - var(--horizontal-padding) - var(--horizontal-padding) - 16px - 26px) / 2);
+      /* TABLET */media(width < 1280px): calc((50svw - var(--horizontal-padding) - 13px - 13px - 16px - 8px) / 2);
+      /* LAPTOP */media(width < 1920px): calc((50svw - var(--horizontal-padding) - 13px - 13px - 16px - 16px - 8px) / 3);
+      /* DESKTOP */ else:                calc((50svw - var(--horizontal-padding) - 13px - 13px - 16px - 16px - 16px) / 4);
+    );
     min-width: var(--width); width: var(--width); max-width: var(--width);
 
     .mission-sub-bloc.new-mission {

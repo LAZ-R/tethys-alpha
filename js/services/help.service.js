@@ -1,11 +1,12 @@
+import { APP_VERSION } from "../../app-properties.js";
 import { getSvgIcon } from "./icons.service.js";
 
 export function getHelpDom() {
   return `
   <p>
-    Bienvenue dans <b class="txt-primary">TÉTHYS</b>, un jeu de gestion économique spatial au tour par tour.<br>
+    Bienvenue dans <b class="txt-primary">TÉTHYS</b>, jeu de gestion économique spatial au tour par tour.<br>
     <br>
-    Vous incarnez le∙la dirigeant∙e de la guilde <b>TÉTHYS</b>, guilde commerciale dotée d'une flotte de fidèles équipages de prospecteurs, collecteurs, extracteurs et récupérateurs, 
+    Vous incarnez le∙la dirigeant∙e de la guilde <b>TÉTHYS</b>, guilde commerciale dotée d'une flotte de fidèles équipages de prospecteurs, collecteurs, extracteurs et récupérateurs spatiaux, 
     d'un immense entrepôt et d'une volonté d'expansion dévorante.
   </p>
 
@@ -474,14 +475,18 @@ export function getHelpDom() {
             Le concept d'<b>Alètheia</b> (ἀλήθεια en grec ancien), est issu de la philosophie grecque antique qui sert à opposer le domaine de la Vérité (alètheia) à celui de l'opinion, ou doxa.
           </p>
           <p>
-            <b class="txt-primary">TÉTHYS</b> est un jeu développé par <a class="txt-primary" href="https://laz-r.github.io/store/" target="_blank">LAZ-R</a>, 
-            volontairement basé uniquement sur des technologies front-end <i>vanilla</i> et distribué sous forme d'une PWA.
+            <b class="txt-primary">TÉTHYS</b> est un jeu volontairement développé avec des technologies front-end <i>vanilla</i> et distribué sous forme d'une PWA.
           </p>
+          
+          <div>
+            <span class="txt-primary">TÉTHYS <span>v ${APP_VERSION}</span></span><br>
+            <span>Copyright ©2025-${new Date().getFullYear()} <a class="txt-primary" href="https://laz-r.github.io/store/" target="_blank">LAZ-R</a></span><br>
+            <span>Tous droits réservés</span>
+          </div>
+          
         </div>
       </div>
     </div>
   </div>
-
-  
   `;
 }
