@@ -24,8 +24,8 @@ export function getHelpDom() {
         <div class="inner-body">
           <p>
             Basée sur la station interstellaire <b>PÉLAGOS</b>, immense comptoir artificiel en orbite autour du trou noir <b>ALÈTHEIA</b> et conçue comme un relai entre les deux systèmes planétaires 
-            principaux de ce coin de la galaxie, votre guilde est la seules de cette station à avoir obtenu une concession au port d'amarrage industriel.<br>
-            Celà vous permet de gérer votre commerce au plus près des ressources et d'être informé au plus tôt des tendances commerciales.<br>
+            principaux de ce coin de la galaxie, votre guilde est la seule de cette station à avoir obtenu une concession au port d'amarrage industriel.<br>
+            Cela vous permet de gérer votre commerce au plus près des ressources et d'être informé au plus tôt des tendances commerciales.<br>
             <br>
             Dans le secteur, les patrouilles et les rackets rendent la vente directe par freelances trop risquée: votre existence sert de paratonnerre aux équipages.<br>
             Cependant, tout le monde ne peut pas vous vendre librement: les équipages qui souhaitent commercer avec vous doivent être affiliés à votre guilde.

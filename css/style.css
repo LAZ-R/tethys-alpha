@@ -407,6 +407,20 @@ button {
       .ask {
         font-size: 12px;
       }
+
+      .up, .equal, .down {
+        margin-left: 4px;
+      }
+
+      .up {
+        color: yellowgreen;
+      }
+      .equal {
+        color: hsl(0, 0%, 30%);
+      }
+      .down {
+        color: red;
+      }
     }
   }
 }

@@ -1,4 +1,4 @@
-# TÉTHYS (alpha v0.0.4)
+# TÉTHYS (alpha v0.0.5)
 
 **[Jeu de gestion économique spatial](https://laz-r.github.io/tethys-alpha/)**
 
@@ -16,6 +16,9 @@ This is mostly a *proof of concept* so the code here is awfull, I know.
 TODO
 // URGENT POUR FINIR ///////////////////////////////////////////////////////////////
 
+// Start screen
+- faire une version des règles spéciale pour ça, potentiellement en mode RP
+
 // wording --------------------------------------------
 - trouver nom systèmes voisins
 - tout revérifier
@@ -25,7 +28,6 @@ TODO
 
 // Missions --------------------------------------------
 - Concept de missions premium ?
-- ajouter pots de vins sur black -> Comment ? Visible ?
 
 // Ajustements UI --------------------------------------------
 - faire en sorte que l'UI de la vente se ferme pas à la vente sinon c'est relou (passage id ressource dans le update dom pour mettre le drawer open + scroll auto)

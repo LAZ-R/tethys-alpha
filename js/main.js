@@ -824,6 +824,7 @@ export const onClosePopUpButtonClick = () => {
   if (!display.classList.contains('hidden')) {
     display.classList.add('hidden');
   }
+  currentSellCount = 1;
 };
 window.onClosePopUpButtonClick = onClosePopUpButtonClick;
 
@@ -839,7 +840,10 @@ export const getWarehouseSlotBlocDom = (warehouseSlot, isSellable = false, isBla
     <!-- <span>${ressource.category}</span> -->
     <span class="rarity-text ${ressource.rarity}">${ressource.rarity}</span>
     <span class="qty spaced-text" style="margin-top: auto;"><span>Quantité:</span><b>${warehouseSlot.qty}</b></span>
-    <span class="ask spaced-text"><span>ASK:</span> <span class="txt-primary">${isBlack && CURRENT_PHASE !== 4 ? '********** CRD' : `${getCommaFormatedString(ressource.ask)} CRD`}</span></span>
+    <span class="ask spaced-text">
+      <span>ASK:</span>
+      <span class="txt-primary">${isBlack && CURRENT_PHASE !== 4 ? '********** CRD' : `${getCommaFormatedString(ressource.ask)} CRD`}<span class="${ressource.tendency}">${ressource.tendency == 'up' ? '▲' : ressource.tendency == 'down' ? '▼' : ressource.tendency == 'equal' ? '⬤' : ''}</span></span>
+    </span>
   `;
   str += '</div>';
 
@@ -1228,8 +1232,15 @@ export const getWarehouseBlackSlotsListDom = (isSellable = false) => {
   return str;
 }
 
+export let currentSellCount = 1;
 function onWarehouseSlotBlocClick(ressourceId) {
-  //console.log(ressourceId);
+  updateSellPopUpDom(ressourceId)
+  let popUp = document.getElementById('popUp');
+  popUp.classList.remove('hidden');
+}
+window.onWarehouseSlotBlocClick = onWarehouseSlotBlocClick;
+
+function updateSellPopUpDom(ressourceId) {
   let ressource = getRessourceObjById(ressourceId);
   let ressourceDesc = '';
   let ressourceTemp = OFFICIAL_RESSOURCES_DESCRIPTIONS.find((descObj) => descObj.id == ressourceId);
@@ -1246,43 +1257,50 @@ function onWarehouseSlotBlocClick(ressourceId) {
   }
   descStr += `</ul>`;
 
-  let popUp = document.getElementById('popUp');
+  let half = 0;
+  half = Math.floor(warehouseSlot.qty / 2);
+
   document.getElementById('popUpRessourceTitle').innerHTML = `Vente`;
   document.getElementById('popUpRessourceName').innerHTML = `<span>${ressource.category} <span class="rarity-text ${ressource.rarity}">${ressource.rarity}</span>`;
   document.getElementById('popUpRessourceAsk').innerHTML = `<span>ASK:</span><span class="txt-primary">${getCommaFormatedString(ressource.ask)} CRD</span>`;
   document.getElementById('popUpBody').innerHTML = `
     <div class="ressource-image ${ressource.category} ${ressource.rarity}"></div>
     <p>${descStr}</p>
-    <button id="popUpRessourceDisplay" class="lzr-button lzr-solid lzr-primary" style="margin-top: auto;" onclick="onSellRessourceClick('${ressource.id}', 'one')">Vendre 1 pour<br>${getCommaFormatedString(ressource.ask)} CRD</button>
-    ${warehouseSlot.qty != 1 ? `<button id="popUpRessourceDisplay" class="lzr-button lzr-solid lzr-primary" onclick="onSellRessourceClick('${ressource.id}', 'all')">Vendre tout pour<br>${getCommaFormatedString(ressource.ask * warehouseSlot.qty)} CRD</button>` : ''}
+    <div class="spaced-text" style="margin-top: auto; gap: 8px;">
+      ${warehouseSlot.qty != 1 ? `<button class="lzr-button lzr-outlined lzr-primary" style="min-width: 36px; width: 36px; height: 56px;" onclick="onMinusClick('${ressource.id}')">-</button>` : ''}
+      <button class="lzr-button lzr-solid lzr-primary" style="margin-top: auto;" onclick="onSellRessourceClick('${ressource.id}',  ${currentSellCount})">Vendre ${currentSellCount} pour<br>${getCommaFormatedString(ressource.ask * currentSellCount)} CRD</button>
+      ${warehouseSlot.qty != 1 ? `<button class="lzr-button lzr-outlined lzr-primary" style="min-width: 36px; width: 36px; height: 56px;" onclick="onPlusClick('${ressource.id}')">+</button>` : ''}
+    </div>
+    ${warehouseSlot.qty != 1 ? `<button class="lzr-button lzr-solid lzr-primary"" onclick="onSellRessourceClick('${ressource.id}', ${half})">Vendre la moitié (${half}) pour<br>${getCommaFormatedString(ressource.ask * half)} CRD</button>` : ''}
+    ${warehouseSlot.qty != 1 ? `<button class="lzr-button lzr-solid lzr-primary" onclick="onSellRessourceClick('${ressource.id}', ${warehouseSlot.qty})">Vendre tout (${warehouseSlot.qty}) pour<br>${getCommaFormatedString(ressource.ask * warehouseSlot.qty)} CRD</button>` : ''}
   `;
-
-  popUp.classList.remove('hidden');
 }
-window.onWarehouseSlotBlocClick = onWarehouseSlotBlocClick;
 
-function onSellRessourceClick(ressourceId, type) {
+function onPlusClick(ressourceId) {
+  let warehouseSlot = WAREHOUSE.find((slot) => slot.id == ressourceId);
+  if (currentSellCount != warehouseSlot.qty) {
+    currentSellCount += 1;
+    updateSellPopUpDom(ressourceId)
+  }
+}
+window.onPlusClick = onPlusClick;
+
+function onMinusClick(ressourceId) {
+  if (currentSellCount != 1) {
+    currentSellCount -= 1;
+    updateSellPopUpDom(ressourceId)
+  }
+}
+window.onMinusClick = onMinusClick;
+
+function onSellRessourceClick(ressourceId, soldQty) {
   let ressource = getRessourceObjById(ressourceId);
   let warehouseSlot = WAREHOUSE.find((slot) => slot.id == ressourceId);
 
-  let amount = 0;
-  let soldQty = 0;
-
-  switch (type) {
-    case 'one':
-      amount = ressource.ask;
-      soldQty = 1;
-      warehouseSlot.qty -= 1;
-      break;
-  case 'all':
-      amount = Number((ressource.ask * warehouseSlot.qty));
-      soldQty = warehouseSlot.qty;
-      warehouseSlot.qty = 0;
-      break;
-    default:
-      break;
-  }
-  ressource.current_cycle_sold_units = soldQty;
+  let amount = Number((ressource.ask * soldQty));
+  warehouseSlot.qty -= soldQty;
+  
+  ressource.current_cycle_sold_units += soldQty;
 
   updateOfficialRessourcesMarket(CURRENT_OFFICIAL_RESSOURCES_MARKET);
   const container = document.getElementById('officialSellableList');
@@ -1300,6 +1318,8 @@ function onSellRessourceClick(ressourceId, type) {
 
   let popUp = document.getElementById('popUp');
   popUp.classList.add('hidden');
+
+  currentSellCount = 1;
 }
 window.onSellRessourceClick = onSellRessourceClick;
 

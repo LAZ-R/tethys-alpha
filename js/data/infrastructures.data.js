@@ -14,7 +14,7 @@ export const INFRASTRUCTURES = [
   {
     id: "AS_TC_02",
     label: "Cantine ouvrière",
-    desc: "Lieu de rassemblement où dockers et équipages claquent leur paye dans l'alcool et la musique.",
+    desc: "Lieu de rassemblement où dockers et équipages dilapident leur paye dans l'alcool et la musique.",
     cost: 250000, // 250k
     passive_revenu: 2500, // 2.5k
     min_crew: 7,

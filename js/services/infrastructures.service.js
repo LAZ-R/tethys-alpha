@@ -182,10 +182,10 @@ export function onInvestClick(infraId) {
   }
   let obj = getStorageInfrastructureObjById(infraId);
   USER_INFRASTRUCTURES.push(obj);
-  updateUserInfrastructures(USER_INFRASTRUCTURES);
-  document.getElementById('investmentsContainer').innerHTML = getInvestmentsDom();
   updateTotalBalance('sub', baseInfra.cost);
   updateTotalBalanceDom();
+  updateUserInfrastructures(USER_INFRASTRUCTURES);
+  document.getElementById('investmentsContainer').innerHTML = getInvestmentsDom();
   updatePassiveRevenuDom();
   updateFlairDom();
   
