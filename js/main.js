@@ -13,6 +13,7 @@ import { BLACK_RESSOURCES_DESCRIPTIONS, OFFICIAL_RESSOURCES_DESCRIPTIONS } from 
 import { getEventsDom } from "./services/event.service.js";
 import { getSystemDom } from "./services/system.service.js";
 import { getInvestmentsDom, getPassiveInfrasDom, updateFlairDom, updatePassiveRevenuDom, updateUserInfrastructures, USER_INFRASTRUCTURES } from "./services/infrastructures.service.js";
+import { getSettingsDom } from "./services/settings-service.js";
 // DOM VARIABLES //////////////////////////////////////////////////////////////////////////////////////
 const HEADER = document.getElementById('header');
 const MAIN = document.getElementById('main');
@@ -1434,6 +1435,7 @@ FOOTER.innerHTML = `
 
 document.getElementById('systemDisplay').innerHTML = getSystemDom();
 document.getElementById('helpDisplay').innerHTML = getHelpDom();
+document.getElementById('settingsDisplay').innerHTML = getSettingsDom();
 document.getElementById('storageDisplay').innerHTML = getStorageDom();
 
 

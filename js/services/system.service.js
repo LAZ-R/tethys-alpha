@@ -60,7 +60,7 @@ export function getSystemDom() {
       </div>
     
     </div>
-  <button style="margin-top: auto;"class="lzr-button lzr-outlined lzr-primary" onclick="onOpenGhostPageButtonClick('helpContainer')">Aide</button>
+  <button style="margin-top: auto;"class="lzr-button lzr-solid lzr-primary" onclick="onOpenGhostPageButtonClick('helpContainer')">Aide</button>
   <button class="lzr-button lzr-outlined lzr-primary" onclick="onOpenGhostPageButtonClick('settingsContainer')">Paramètres</button>
   <button class="lzr-button lzr-outlined lzr-primary" onclick="onOpenGhostPageButtonClick('storageContainer')">Stockage</button>
   `;

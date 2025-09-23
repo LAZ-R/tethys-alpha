@@ -1,6 +1,6 @@
 # TÉTHYS  
 `alpha`  
-`v 0.0.7`
+`v 0.0.8`
 
 ## Bienvenue dans TÉTHYS, jeu de gestion économique spatial au tour par tour.
     
