@@ -905,13 +905,12 @@ export const getWarehouseOfficialSlotsListDom = (isSellable = false) => {
   <div class="lzr-drawer lzr-solid lzr-margin-bottom">
     <div class="tile-header">
       <div class="title-bloc">
-        <span class="header-title">Minerai</span>
+        <span class="header-title">
+          <span>Minerai</span>
+          <span class="txt-primary" style="margin-left: auto; font-size: 16px; font-weight: 400;">${getCommaFormatedString(mineraiCategoryTotal)} CRD</span>
+        </span>
         ${mineraiQtyStr == '' ? '' : `<div class="qty-line">${mineraiQtyStr}</div>`}
        </div>
-      <span class="spaced-text">
-        <span> </span>
-        <span class="txt-primary">${getCommaFormatedString(mineraiCategoryTotal)} CRD</span>
-      </span>
       <div class="tile-caret">
       ${getSvgIcon('chevron-right', 'm', null)}
       </div>
@@ -967,13 +966,12 @@ export const getWarehouseOfficialSlotsListDom = (isSellable = false) => {
   <div class="lzr-drawer lzr-solid lzr-margin-bottom">
     <div class="tile-header">
       <div class="title-bloc">
-        <span class="header-title">Composants</span>
+        <span class="header-title">
+          <span>Composants</span>
+          <span class="txt-primary" style="margin-left: auto; font-size: 16px; font-weight: 400;">${getCommaFormatedString(composantsCategoryTotal)} CRD</span>
+        </span>
         ${composantsQtyStr == '' ? '' : `<div class="qty-line">${composantsQtyStr}</div>`}
       </div>
-      <span class="spaced-text">
-        <span> </span>
-        <span class="txt-primary">${getCommaFormatedString(composantsCategoryTotal)} CRD</span>
-      </span>
       <div class="tile-caret">
       ${getSvgIcon('chevron-right', 'm', null)}
       </div>
@@ -1029,13 +1027,12 @@ export const getWarehouseOfficialSlotsListDom = (isSellable = false) => {
   <div class="lzr-drawer lzr-solid lzr-margin-bottom">
     <div class="tile-header">
       <div class="title-bloc">
-        <span class="header-title">Nanotech</span>
+        <span class="header-title">
+          <span>Nanotech</span>
+          <span class="txt-primary" style="margin-left: auto; font-size: 16px; font-weight: 400;">${getCommaFormatedString(nanotechCategoryTotal)} CRD</span>
+        </span>
         ${nanotechQtyStr == '' ? '' : `<div class="qty-line">${nanotechQtyStr}</div>`}
       </div>
-      <span class="spaced-text">
-        <span> </span>
-        <span class="txt-primary">${getCommaFormatedString(nanotechCategoryTotal)} CRD</span>
-      </span>
       <div class="tile-caret">
       ${getSvgIcon('chevron-right', 'm', null)}
       </div>
@@ -1096,13 +1093,12 @@ export const getWarehouseBlackSlotsListDom = (isSellable = false) => {
   <div class="lzr-drawer lzr-solid lzr-margin-bottom">
     <div class="tile-header">
       <div class="title-bloc">
-        <span class="header-title">Armement</span>
+        <span class="header-title">
+        <span>Armement</span>
+          <span class="txt-primary" style="margin-left: auto; font-size: 16px; font-weight: 400;">${getCommaFormatedString(armementCategoryTotal)} CRD</span>
+        </span>
         ${armementQtyStr == '' ? '' : `<div class="qty-line">${armementQtyStr}</div>`}
        </div>
-      <span class="spaced-text">
-        <span> </span>
-        <span class="txt-primary">${CURRENT_PHASE !== 4 ? '********** CRD' : `${getCommaFormatedString(armementCategoryTotal)} CRD`}</span>
-      </span>
       <div class="tile-caret">
       ${getSvgIcon('chevron-right', 'm', null)}
       </div>
@@ -1158,13 +1154,12 @@ export const getWarehouseBlackSlotsListDom = (isSellable = false) => {
   <div class="lzr-drawer lzr-solid lzr-margin-bottom">
     <div class="tile-header">
       <div class="title-bloc">
-        <span class="header-title">Narcotix</span>
+        <span class="header-title">
+          <span>Narcotix</span>
+          <span class="txt-primary" style="margin-left: auto; font-size: 16px; font-weight: 400;">${getCommaFormatedString(narcotixCategoryTotal)} CRD</span>
+        </span>
         ${narcotixQtyStr == '' ? '' : `<div class="qty-line">${narcotixQtyStr}</div>`}
       </div>
-      <span class="spaced-text">
-        <span> </span>
-        <span class="txt-primary">${CURRENT_PHASE !== 4 ? '********** CRD' : `${getCommaFormatedString(narcotixCategoryTotal)} CRD`}</span>
-      </span>
       <div class="tile-caret">
       ${getSvgIcon('chevron-right', 'm', null)}
       </div>
@@ -1220,13 +1215,12 @@ export const getWarehouseBlackSlotsListDom = (isSellable = false) => {
   <div class="lzr-drawer lzr-solid lzr-margin-bottom">
     <div class="tile-header">
       <div class="title-bloc">
-        <span class="header-title">Artefacts</span>
+        <span class="header-title">
+          <span>Artefacts</span>
+          <span class="txt-primary" style="margin-left: auto; font-size: 16px; font-weight: 400;">${getCommaFormatedString(artefactCategoryTotal)} CRD</span>
+        </span>
         ${artefactQtyStr == '' ? '' : `<div class="qty-line">${artefactQtyStr}</div>`}
       </div>
-      <span class="spaced-text">
-        <span> </span>
-        <span class="txt-primary">${CURRENT_PHASE !== 4 ? '********** CRD' : `${getCommaFormatedString(artefactCategoryTotal)} CRD`}</span>
-      </span>
       <div class="tile-caret">
       ${getSvgIcon('chevron-right', 'm', null)}
       </div>

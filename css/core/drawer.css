@@ -29,6 +29,7 @@
         justify-content: flex-start;
         align-items: flex-start;
         gap: 8px;
+        width: 100%;
       }
 
       .spaced-text {
@@ -41,11 +42,14 @@
       }
   
       .header-title {
-        display: block;
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
         font-size: 18px;
         font-weight: 600;
         gap: 8px;
         color: var(--color--fg-default);
+        width: 100%;
       }
       .header-sub-title {
         display: block;

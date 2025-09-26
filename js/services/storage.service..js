@@ -113,7 +113,7 @@ function downloadText() {
   // Création d’un lien de téléchargement
   const lien = document.createElement("a");
   lien.href = URL.createObjectURL(blob);
-  lien.download = `monocrono_savefile-${dateStr}.txt`; // nom du fichier
+  lien.download = `tethys_savefile-${dateStr}.txt`; // nom du fichier
 
   // Ajout du lien au DOM et clic automatique
   document.body.appendChild(lien);

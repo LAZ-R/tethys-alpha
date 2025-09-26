@@ -605,6 +605,7 @@ window.onAvailableCrewBlocClick = onAvailableCrewBlocClick;
 
 export const updateAvailableCrewDom = () => {
   document.getElementById('availableCrewsDisplay').innerHTML = getAvailableCrewBlocsDom();
+  document.getElementById('availableCrewsAttribution').innerHTML = MY_CREWS.filter((crew) => crew.assigned == null && crew.is_resting == false).length;
 }
 
 export const setStartingCrews = () => {

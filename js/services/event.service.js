@@ -93,16 +93,17 @@ export function getNonEventDom(mission, isReturning = false) {
 
 export function getEventsDom() {
   let str = ``;
+  let ALL_MISSIONS = [];
   for (let mission of OFFICIAL_CURRENT_MISSIONS) {
-    if (mission.mission_type.cycles == 1 && mission.event != null) {
-      str += `${getEventDom(mission)}`;
-    } else if (mission.mission_type.cycles == 1 && mission.event == null) {
-      str += `${getNonEventDom(mission, true)}`;
-    } else {
-      str += `${getNonEventDom(mission)}`;
-    }
+    ALL_MISSIONS.push(mission)
   }
   for (let mission of BLACK_CURRENT_MISSIONS) {
+    ALL_MISSIONS.push(mission)
+  }
+
+  ALL_MISSIONS.sort((a, b) => {return a.mission_type.cycles - b.mission_type.cycles});
+
+  for (let mission of ALL_MISSIONS) {
     if (mission.mission_type.cycles == 1 && mission.event != null) {
       str += `${getEventDom(mission)}`;
     } else if (mission.mission_type.cycles == 1 && mission.event == null) {

@@ -186,9 +186,20 @@ export const getAvailableBlackMissionsBlocsDom = () => {
   return str;
 }
 
+function updateCurrentMissionValueHeader() {
+  let currentMission = null;
+  if (selectedMission.includes('official')) {
+    currentMission = OFFICIAL_AVAILABLE_MISSIONS.find((mission) => mission.id == selectedMission);
+  } else {
+    currentMission = BLACK_AVAILABLE_MISSIONS.find((mission) => mission.id == selectedMission);
+  }
+  document.getElementById('currentMissionAttribution').innerHTML = `${currentMission.mission_type.category} <span class="rarity-text ${currentMission.mission_type.rarity}">${currentMission.mission_type.rarity}</span>`;
+}
+
 function onAvailableMissionClick(missionId) {
   selectedMission = missionId;
   updateAvailableCrewDom();
+  updateCurrentMissionValueHeader();
   onOpenGhostPageButtonClick('availableCrewsContainer')
 }
 window.onAvailableMissionClick = onAvailableMissionClick;

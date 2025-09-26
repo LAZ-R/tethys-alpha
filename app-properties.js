@@ -4,6 +4,7 @@ export const APP_LOCAL_STORAGE_ID = `tethys-alpha-004`;
 
 // CHANGELOG
 
+// v 0.0.9 - fix header drawer warehouse pour gros montants + header page attribution (mission à attribuer & equipages disponibles) + tri sur les events -> ceux qui rentrent mtn en 1er + scroll behaviour pas smooth
 // v 0.0.8 - bouton nouvelle partie + refacto css
 // v 0.0.7 - HOTFIX prix infra
 // v 0.0.6 - début styling desktop + sorting des available crews + gestion theme finish
