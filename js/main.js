@@ -786,7 +786,7 @@ const onNextPhaseButtonClick = () => {
           IS_BANKRUPTCY = false;
           user.CYCLES_BEFORE_GAME_OVER = 3;
           user.UI_THEME = user.PREFERED_THEME;
-          document.getElementsByClassName('lzr')[0].style = `--theme: '${user.PREFERED_THEME}';`;
+          document.getElementsByClassName('lzr')[0].style = `--theme: '${user.UI_THEME}';`;
         }
       }
       setUser(user);

@@ -203,7 +203,7 @@ export function onInvestClick(infraId) {
         break;
     }
     setUser(user);
-    document.getElementsByClassName('lzr')[0].style = `--theme: '${user.PREFERED_THEME}';`;
+    document.getElementsByClassName('lzr')[0].style = `--theme: '${user.UI_THEME}';`;
   }
   
   let popUp = document.getElementById('popUp');

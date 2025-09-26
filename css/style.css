@@ -520,6 +520,87 @@ Ghost pages
 /* Paramètres ============================================================== */
 #settingsDisplay {
   width: 100%;
+
+  .themes-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-items: flex-start;
+    width: 100%;
+    gap: 8px;
+
+    .theme-bloc {
+      --bg-color: var(--color--bg-default);
+      --fg-color: var(--color--fg-default);
+      --primary-color: var(--color--fg-default);
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: flex-start;
+      width: calc(50% - 4px);
+      padding: 16px;
+      background-color: var(--bg-color);
+      border: 16px solid var(--color--bg-alt);
+      outline: 4px solid var(--color--bg-alt);
+
+      &.selected {
+        outline: 3px solid var(--color--primary)
+      }
+
+      &.light {
+        --bg-color: hsl(0, 0%, 85%);
+        --primary-color: hsl(25, 100%, 40%);
+        --fg-color: hsl(0, 0%, 15%);
+      }
+
+      &.dark {
+        --bg-color: hsl(0, 0%, 15%);
+        --primary-color: hsl(19, 99%, 67%);
+        --fg-color: hsl(0, 0%, 85%);
+      }
+
+      &.official {
+        --bg-color: hsl(40, 20%, 85%);
+        --primary-color: hsl(180, 70%, 20%);
+        --fg-color: hsl(40, 20%, 15%);
+      }
+
+      &.unofficial {
+        --bg-color: hsl(330, 10%, 15%);
+        --primary-color: hsl(0, 100%, 65%);
+        --fg-color: hsl(330, 10%, 85%);
+      }
+
+      .title {
+        min-width: 100%;
+        min-height: 16px;
+        background-color: var(--primary-color);
+        margin-bottom: 16px;
+      }
+
+      .bloc {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: flex-start;
+        min-width: 100%;
+
+        .bloc-title {
+          min-width: 100%;
+          min-height: 8px;
+          background-color: var(--primary-color);
+          margin-bottom: 8px;
+        }
+
+        .bloc-text {
+          min-width: 100%;
+          min-height: 4px;
+          background-color: var(--fg-color);
+          margin-bottom: 4px;
+        }
+      }
+    }
+  }
 }
 
 /* Stockage ================================================================ */
@@ -588,7 +669,7 @@ Main page
       /* PHONE */ media(width < 767px):  calc((100svw - var(--horizontal-padding) - var(--horizontal-padding) - 16px - 26px) / 2);
       /* TABLET */media(width < 1280px): calc((50svw - var(--horizontal-padding) - 13px - 13px - 16px - 8px) / 2);
       /* LAPTOP */media(width < 1920px): calc((50svw - var(--horizontal-padding) - 13px - 13px - 16px - 16px - 8px) / 3);
-      /* DESKTOP */ else:                calc((50svw - var(--horizontal-padding) - 13px - 13px - 16px - 16px - 16px) / 4);
+      /* DESKTOP */ else:                calc((50svw - var(--horizontal-padding) - 13px - 13px - 16px - 16px - 16px - 8px) / 4);
     );
     min-width: var(--width); width: var(--width); max-width: var(--width);
 
@@ -843,7 +924,7 @@ Divers
         /* PHONE */ media(width < 767px):  calc((100svw - var(--horizontal-padding) - var(--horizontal-padding) - 13px - 13px - 16px) / 2);
         /* TABLET */media(width < 1280px): calc((50svw - var(--horizontal-padding) - 13px - 13px - 16px - 8px) / 2);
         /* LAPTOP */media(width < 1920px): calc((50svw - var(--horizontal-padding) - 13px - 13px - 16px - 16px - 8px) / 3);
-        /* DESKTOP */ else:                calc((50svw - var(--horizontal-padding) - 13px - 13px - 16px - 16px - 16px) / 4);
+        /* DESKTOP */ else:                calc((50svw - var(--horizontal-padding) - 13px - 13px - 16px - 16px - 16px - 8px) / 4);
       );
       display: flex;
       flex-direction: column;
@@ -974,17 +1055,21 @@ Divers
   background-size: cover;
   background-position: center;
 
+  &.default {
+    filter: var(--filter--fg-default);
+  }
+
   &.Commun {
-    filter: var(--filter-common);
+    filter: var(--filter--common);
   }
   &.Inhabituel {
-    filter: var(--filter-uncommon);
+    filter: var(--filter--uncommon);
   }
   &.Rare {
-    filter: var(--filter-rare);
+    filter: var(--filter--rare);
   }
   &.Légendaire {
-    filter: var(--filter-legendary);
+    filter: var(--filter--legendary);
   }
 
   &.Minerai {

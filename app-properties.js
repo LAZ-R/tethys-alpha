@@ -4,7 +4,7 @@ export const APP_LOCAL_STORAGE_ID = `tethys-alpha-004`;
 
 // CHANGELOG
 
-
+// v 0.0.10 - fix css desktop + ajout gestion themes
 // v 0.0.9 - fix header drawer warehouse pour gros montants + header page attribution (mission à attribuer & equipages disponibles) + tri sur les events + scroll behaviour pas smooth
 // v 0.0.8 - bouton nouvelle partie + refacto css
 // v 0.0.7 - HOTFIX prix infra

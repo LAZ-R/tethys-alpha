@@ -18,6 +18,7 @@
   --color--bg-alt--alpha:  hsla(0, 0%, 15%, .1);
 
   --color--fg-default:         var(--color--bg-85);
+  --filter--fg-default:         var(--color--bg-85);
   --color--fg-default--hover:  var(--color--bg-90);
   --color--fg-default--active: var(--color--bg-95);
   --color--outline--fg-default: hsla(0, 0%, 85%, 33%);
@@ -215,9 +216,9 @@
     else: #333333
   );
   --color--on-error: if(
-    style(--theme: 'light'): var(--color--fg-default);
+    style(--theme: 'light'): var(--color--fg-85);
     style(--theme: 'dark'): var(--color--fg-85); 
-    style(--theme: 'official'): var(--color--fg-default);
+    style(--theme: 'official'): var(--color--fg-85);
     style(--theme: 'unofficial'): var(--color--fg-15);
     style(--theme: 'bankruptcy'): var(--color--fg-85); 
     else: #333333
@@ -230,42 +231,70 @@
   --color--common: if(
     style(--theme: 'light'): hsl(140, 45%, 30%);
     style(--theme: 'dark'): hsl(140, 61%, 75%); 
-    style(--theme: 'official'): hsl(140, 61%, 75%);
+    style(--theme: 'official'): hsl(140, 45%, 30%);
     style(--theme: 'unofficial'): hsl(140, 61%, 75%);
     style(--theme: 'bankruptcy'): hsl(140, 61%, 75%); 
     else: #333333
   );
-  --filter-common: brightness(0) saturate(100%) invert(97%) sepia(3%) saturate(4948%) hue-rotate(69deg) brightness(87%) contrast(109%);
+  --filter--common: if(
+    style(--theme: 'light'): brightness(0) saturate(100%) invert(36%) sepia(35%) saturate(660%) hue-rotate(87deg) brightness(93%) contrast(96%);
+    style(--theme: 'dark'): brightness(0) saturate(100%) invert(97%) sepia(3%) saturate(4948%) hue-rotate(69deg) brightness(87%) contrast(109%); 
+    style(--theme: 'official'): brightness(0) saturate(100%) invert(36%) sepia(35%) saturate(660%) hue-rotate(87deg) brightness(93%) contrast(96%);
+    style(--theme: 'unofficial'): brightness(0) saturate(100%) invert(97%) sepia(3%) saturate(4948%) hue-rotate(69deg) brightness(87%) contrast(109%);
+    style(--theme: 'bankruptcy'): brightness(0) saturate(100%) invert(97%) sepia(3%) saturate(4948%) hue-rotate(69deg) brightness(87%) contrast(109%); 
+    else: #333333;
+  );
   
   --color--uncommon: if(
     style(--theme: 'light'): hsl(194, 86%, 30%);
     style(--theme: 'dark'): hsl(194, 86%, 70%); 
-    style(--theme: 'official'): hsl(194, 86%, 70%);
+    style(--theme: 'official'): hsl(194, 86%, 30%);
     style(--theme: 'unofficial'): hsl(194, 86%, 70%);
     style(--theme: 'bankruptcy'): hsl(194, 86%, 70%); 
     else: #333333
   );
-  --filter-uncommon: brightness(0) saturate(100%) invert(85%) sepia(11%) saturate(3120%) hue-rotate(164deg) brightness(101%) contrast(91%);
+  --filter--uncommon: if(
+    style(--theme: 'light'): brightness(0) saturate(100%) invert(31%) sepia(24%) saturate(4380%) hue-rotate(166deg) brightness(90%) contrast(91%);
+    style(--theme: 'dark'): brightness(0) saturate(100%) invert(85%) sepia(11%) saturate(3120%) hue-rotate(164deg) brightness(101%) contrast(91%); 
+    style(--theme: 'official'): brightness(0) saturate(100%) invert(31%) sepia(24%) saturate(4380%) hue-rotate(166deg) brightness(90%) contrast(91%);
+    style(--theme: 'unofficial'): brightness(0) saturate(100%) invert(85%) sepia(11%) saturate(3120%) hue-rotate(164deg) brightness(101%) contrast(91%);
+    style(--theme: 'bankruptcy'): brightness(0) saturate(100%) invert(85%) sepia(11%) saturate(3120%) hue-rotate(164deg) brightness(101%) contrast(91%); 
+    else: #333333;
+  );
 
   --color--rare: if(
     style(--theme: 'light'): hsl(285, 80%, 40%);
     style(--theme: 'dark'): hsl(285, 100%, 80%); 
-    style(--theme: 'official'): hsl(285, 100%, 80%);
+    style(--theme: 'official'): hsl(285, 80%, 40%);
     style(--theme: 'unofficial'): hsl(285, 100%, 80%);
     style(--theme: 'bankruptcy'): hsl(285, 100%, 80%); 
     else: #333333
   );
-  --filter-rare: brightness(0) saturate(100%) invert(79%) sepia(34%) saturate(3530%) hue-rotate(212deg) brightness(97%) contrast(109%);
+  --filter--rare: if(
+    style(--theme: 'light'): brightness(0) saturate(100%) invert(20%) sepia(55%) saturate(6374%) hue-rotate(280deg) brightness(76%) contrast(103%);
+    style(--theme: 'dark'): brightness(0) saturate(100%) invert(79%) sepia(34%) saturate(3530%) hue-rotate(212deg) brightness(97%) contrast(109%); 
+    style(--theme: 'official'): brightness(0) saturate(100%) invert(20%) sepia(55%) saturate(6374%) hue-rotate(280deg) brightness(76%) contrast(103%);
+    style(--theme: 'unofficial'): brightness(0) saturate(100%) invert(79%) sepia(34%) saturate(3530%) hue-rotate(212deg) brightness(97%) contrast(109%);
+    style(--theme: 'bankruptcy'): brightness(0) saturate(100%) invert(79%) sepia(34%) saturate(3530%) hue-rotate(212deg) brightness(97%) contrast(109%); 
+    else: #333333;
+  );
   
   --color--legendary: if(
     style(--theme: 'light'): hsl(42, 80%, 25%);
     style(--theme: 'dark'): hsl(42, 88%, 70%); 
-    style(--theme: 'official'): hsl(42, 88%, 70%);
+    style(--theme: 'official'): hsl(42, 80%, 25%);
     style(--theme: 'unofficial'): hsl(42, 88%, 70%);
     style(--theme: 'bankruptcy'): hsl(42, 88%, 70%); 
     else: #333333
   );
-  --filter-legendary: brightness(0) saturate(100%) invert(76%) sepia(64%) saturate(361%) hue-rotate(347deg) brightness(102%) contrast(93%);
+  --filter--legendary: if(
+    style(--theme: 'light'): brightness(0) saturate(100%) invert(30%) sepia(12%) saturate(7120%) hue-rotate(24deg) brightness(93%) contrast(90%);
+    style(--theme: 'dark'): brightness(0) saturate(100%) invert(76%) sepia(64%) saturate(361%) hue-rotate(347deg) brightness(102%) contrast(93%); 
+    style(--theme: 'official'): brightness(0) saturate(100%) invert(30%) sepia(12%) saturate(7120%) hue-rotate(24deg) brightness(93%) contrast(90%);
+    style(--theme: 'unofficial'): brightness(0) saturate(100%) invert(76%) sepia(64%) saturate(361%) hue-rotate(347deg) brightness(102%) contrast(93%);
+    style(--theme: 'bankruptcy'): brightness(0) saturate(100%) invert(76%) sepia(64%) saturate(361%) hue-rotate(347deg) brightness(102%) contrast(93%); 
+    else: #333333;
+  );
 
   /* ---------- DEFAULT THEME ---------- */
 

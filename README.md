@@ -23,6 +23,9 @@ This is mostly a *proof of concept* so the code here is awfull, I know.
 ## TODO
 ### URGENT
 
+#### CSS
+- ajouter les IF pour les bg et fg, puis les filter bg et fg
+
 #### Start screen
 - faire une version RP et restreinte des règles spécialement pour l'écran d'introduction
 
